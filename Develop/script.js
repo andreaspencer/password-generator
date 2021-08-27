@@ -21,7 +21,7 @@ function generatePassword() {
     return generatePassword();
   } else {
     confirmUppercase = confirm("Do you want Uppercase Letters in your password?");
-    confirmLowercase = confirm("Do you want Lowercase Letters in your password? Choose 'Y' for yes or 'N' for no.");
+    confirmLowercase = confirm("Do you want Lowercase Letters in your password?");
     confirmCharacter = confirm("Do you want Special Characters in your password?");
     confirmNumber = confirm("Do you want Numbers in your password?");
   };
@@ -82,11 +82,11 @@ function generatePassword() {
   };
 var password = [];
 
-for (var i = 0; i < enter; i++);
+for (var i = 0; i < confirmEnter; i++);
 var pickChoices = choices[Math.floor(Math.random() * choices.length)];
   password.push(pickChoices);
   console.log(pickChoices);
-  //debugger;
+  return (pickChoices)
 };
 
 // Get references to the #generate element
