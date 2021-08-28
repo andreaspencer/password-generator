@@ -34,3 +34,4 @@ This weeks challenge was to create a working password generator within the param
 
 ##### Website Screenshot 
 * after all parameters where choosen w/ 8 characters stated as length of password
+<img width="1386" alt="Screen Shot 2021-08-28 at 10 19 47 AM" src="https://user-images.githubusercontent.com/87836575/131225871-6d1fce91-5519-4ce7-b9d5-325ae2ef5818.png">
