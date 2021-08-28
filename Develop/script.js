@@ -1,5 +1,5 @@
 // Assignment code here
-var confirmEnter;
+var confirmLength = "";
 var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
@@ -10,83 +10,45 @@ lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i","j","k","l","m","n","o"
 character = ["!","@","#","$","%","^","&","*","(",")","_","-","=","+","{","}","[","]",";",":","<",">","?"]
 number = ["1","2","3","4","5","6","7","8","9"];
 
-var choices;
-
 function generatePassword() {
-  confirmEnter = window.prompt("How many characters would you like to use? Enter a number between 8 and 128.");
-  if (!confirmEnter) {
+  var confirmLength = window.prompt("How many characters would you like to use? Enter a number between 8 and 128.");
+  if (!confirmLength) {
     alert("This need a value.");
-  } else if (confirmEnter < 8 || confirmEnter > 128) {
+  } else if (confirmLength < 8 || confirmLength > 128) {
     alert("You must choose a valid answer.");
     return generatePassword();
-  } else {
-    confirmUppercase = confirm("Do you want Uppercase Letters in your password?");
-    confirmLowercase = confirm("Do you want Lowercase Letters in your password?");
-    confirmCharacter = confirm("Do you want Special Characters in your password?");
-    confirmNumber = confirm("Do you want Numbers in your password?");
-  };
+  }
+    //parameters of password
+    var confirmUppercase = confirm("Do you want Uppercase Letters in your password?");
+    var confirmLowercase = confirm("Do you want Lowercase Letters in your password?");
+    var confirmCharacter = confirm("Do you want Special Characters in your password?");
+    var confirmNumber = confirm("Do you want Numbers in your password?");
 // no parameters picked
   if (!confirmCharacter && !confirmNumber && !confirmLowercase && !confirmUppercase) {
     var choices = window.alert("You must choose a criteria for the password.");
     return generatePassword();
   } 
-
-// 4 confirmed parameters
-  else if (confirmUppercase && confirmLowercase && confirmCharacter && confirmNumber) {
-    var choices= uppercase.concat(lowercase,character, number);
-  }
-  // 3 confirmed parameters
-  else if (confirmUppercase && confirmNumber && confirmLowercase){
-    var choices = uppercase.concat(number,lowercase);
-  }
-  else if (confirmUppercase && confirmCharacter && confirmNumber) {
-    var choices = uppercase.concat(character, number);
-  }
-  else if (confirmUppercase && confirmLowercase && confirmCharacter) {
-    var choices = uppercase.concat(lowercase,character);
-  }
-  else if (confirmLowercase && confirmCharacter && confirmNumber) {
-    var choices = lowercase.concat(character,number);
-  }
-  //2 confirmed choices
-  else if (confirmUppercase && confirmLowercase) {
-    var choices = uppercase.concat(lowercase);
-  }
-  else if (confirmUppercase && confirmCharacter) {
-    var choices= uppercase.concat(character);
-  }
-  else if (confirmUppercase && confirmNumber) {
-    var choices= uppercase.concat(number);
-  }
-  else if (confirmLowercase && confirmCharacter) {
-    choices = lowercase.concat(character);
-  }
-  else if (confirmLowercase && confirmNumber) {
-    var choices = lowercase.concat(number);
-  }
-  else if (confirmCharacter && confirmNumber) {
-    var choices = character.concat(number);
-  }
+    var passwordChoices = [];
   // 1 choice confirmed
-  else if (confirmUppercase) {
-    var choices = uppercase;
+  if (confirmUppercase) {
+    var passwordChoices = passwordChoices.concat(uppercase);
   }
-  else if (confirmLowercase) {
-    var choices = lowercase;
+  if (confirmLowercase) {
+    var passwordChoices = passwordChoices.concat(lowercase);
   }
-  else if (confirmCharacter) {
-    var choices = character;
+  if (confirmCharacter) {
+    var passwordChoices = passwordChoices.concat(character);
   }
-  else if (confirmNumber) {
-    var choices = number;
+  if (confirmNumber) {
+    var passwordChoices = passwordChoices.concat(number);
   };
-var password = [];
+var passwordRandom = ""
 
-for (var i = 0; i < confirmEnter; i++);
-var pickChoices = choices[Math.floor(Math.random() * choices.length)];
-  password.push(pickChoices);
-  console.log(pickChoices);
-  return (pickChoices)
+for (var i = 0; i < confirmLength; i++) {
+var passwordRandom = passwordRandom + passwordChoices[Math.floor(Math.random() * passwordChoices.length)];
+  console.log(passwordRandom);
+}
+  return passwordRandom;
 };
 
 // Get references to the #generate element
