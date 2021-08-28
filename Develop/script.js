@@ -29,7 +29,7 @@ function generatePassword() {
     return generatePassword();
   } 
     var passwordChoices = [];
-  // 1 choice confirmed
+  // choice confirmed
   if (confirmUppercase) {
     var passwordChoices = passwordChoices.concat(uppercase);
   }
@@ -42,6 +42,7 @@ function generatePassword() {
   if (confirmNumber) {
     var passwordChoices = passwordChoices.concat(number);
   };
+
 var passwordRandom = ""
 
 for (var i = 0; i < confirmLength; i++) {
